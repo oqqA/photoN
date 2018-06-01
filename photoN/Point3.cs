@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace photoN
 {
-   class Point3
+   public class Point3
    {
       public double x;
       public double y;

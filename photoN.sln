@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2011
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "photoN", "photoN\photoN.csproj", "{DB3635E3-C05F-45CA-BA62-B95E43081E17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{EBFF1DD6-E52A-46F5-8A21-1EBE5B368880}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DB3635E3-C05F-45CA-BA62-B95E43081E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB3635E3-C05F-45CA-BA62-B95E43081E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB3635E3-C05F-45CA-BA62-B95E43081E17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBFF1DD6-E52A-46F5-8A21-1EBE5B368880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBFF1DD6-E52A-46F5-8A21-1EBE5B368880}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBFF1DD6-E52A-46F5-8A21-1EBE5B368880}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBFF1DD6-E52A-46F5-8A21-1EBE5B368880}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

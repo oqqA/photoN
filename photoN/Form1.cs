@@ -34,9 +34,8 @@ namespace photoN
       double[,] ModelView = Lookat( eye, center, new Point3(4, 1, 0) );
       double[,] Projection = new double[4, 4];
 
-      double[,] ViewPort = viewport(width / 8, height / 8, width * 3 / 4, height * 3 / 4);
+      double[,] ViewPort = new ViewportClass().ViewportRes(width / 8, height / 8, width * 3 / 4, height * 3 / 4, depth);
       
-
       public Form1()
       {
          InitializeComponent();
@@ -109,13 +108,16 @@ namespace photoN
             Point[] mas = new Point[p.Count];
 
             for (int i = 0; i < p.Count; i++)
-               mas[i] = new Point(centercenterWindow.X/2 + (int)((centerWindow.X + model[p[i] - 1].x) / zoom), centercenterWindow.Y*2 + (int)((centerWindow.Y - model[p[i] - 1].y) / zoom));
+            {
+               mas[i] = new Point(centercenterWindow.X + (int)((centerWindow.X + model[p[i] - 1].x) / zoom), centercenterWindow.Y + (int)((centerWindow.Y - model[p[i] - 1].y) / zoom));
+               double[,] j = new double[1, 3];
+               j[0, 0] = model[p[i] - 1].x;
+               j[0, 1] = model[p[i] - 1].y;
+               j[0, 2] = model[p[i] - 1].z;
+               //j = sumMatrix(sumMatrix(sumMatrix(ViewPort, Projection), ModelView), j);
 
-            //double[,] j = new double[1,3];
-            //j[0,0] = model[p[i] - 1].x;
-            //j[0,1] = model[p[i] - 1].x;
-            //j[0,2] = model[p[i] - 1].x;
-            //sumMatrix(sumMatrix(sumMatrix(ViewPort, Projection), ModelView), j);
+            }
+
 
             if (radioButton1.Checked)
                graph.DrawPolygon(Pens.White, mas);
@@ -142,7 +144,7 @@ namespace photoN
          Point3 z = (eye - center).normalize();
          Point3 x = (up * z).normalize();
          Point3 y = (z * x).normalize();
-         double[,] Minv = new double[4,4];
+         double[,] Minv = new double[3,3];
          double[,] Tr = new double[4,4];
 
          Minv[0,0] = x.x;
@@ -184,19 +186,6 @@ namespace photoN
          }
 
          return newMatrix;
-      }
-
-      static double[,] viewport(int x, int y, int w, int h)
-      {
-         double[,] m = new double[4, 4];
-         m[0, 3] = x + w / 2f;
-         m[1, 3] = y + h / 2f;
-         m[2, 3] = depth / 2f;
-
-         m[0, 0] = w / 2f;
-         m[1, 1] = h / 2f;
-         m[2, 2] = depth / 2f;
-         return m;
       }
 
       // events
